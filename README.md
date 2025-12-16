@@ -8,7 +8,7 @@ There are two main components:
 1. **Emotion Recognition** – Predict valence/arousal for Spotify tracks
 2. **Playlist Sequencing** – Use those predictions to arrange playlists with fewer abrupt transitions
 
-A big part of the project was figuring out how to balance *accuracy* with *speed*. The DEAM neural network uses detailed audio features but is too slow for large datasets (~30 seconds per track). So I built a lightweight Random Forest model that learns to approximate the neural network's predictions using only Spotify's 12 features. This runs in milliseconds and gets similar results (since the neural network itself only gets R²~0.35, the integration model getting ~0.30 is pretty close).
+A big part of the project was figuring out how to balance *accuracy* with *speed*. The DEAM neural network uses detailed audio features but is too slow for large datasets (30 seconds per track). So I built a lightweight Random Forest model that learns to approximate the neural network's predictions using only Spotify's 12 features. This runs in milliseconds and gets similar results (since the neural network itself only gets R²~0.35, the integration model getting ~0.30 is pretty close).
 
 ---
 
@@ -457,4 +457,5 @@ Greedy performs surprisingly well (26.4% improvement) because:
 * DEAM neural network can be run with the included `deam_features_74.csv` file.
 * CSV-only mode works without API keys.
 * This repo focuses more on building pipelines and exploring algorithmic behavior than on building a production UI.
+
 
